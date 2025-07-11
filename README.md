@@ -1,35 +1,36 @@
-# TapServer
-iOS Application to capture Http Requests
+# 📱 TapServer
 
-# TapServer
+A minimal UI automation tap server built using XCTest and GCDWebServer. It allows you to perform taps at absolute screen coordinates via an HTTP API, even when the app is backgrounded.
 
-### Overview
-iOS UI automation tap server using XCTest & XCUICoordinate APIs.
+---
 
-### Architecture
-- GCDWebServer-based lightweight HTTP server
-- UI test keeps server alive to accept requests
-- Supports system-wide taps via XCUICoordinate
-- Robust error handling & logging
+## 🚀 Overview
 
-### Setup
+**TapServer** runs a persistent HTTP server inside an XCTest UI test target and supports absolute coordinate taps on the iOS simulator using `XCUICoordinate`. It's designed to simulate system-level taps for automation and remote control tasks.
+
+---
+
+## 🏗️ Architecture
+
+- **XCTest-based UI Test** keeps the test runner alive indefinitely using `RunLoop.main.run()`
+- **GCDWebServer** powers the HTTP server inside the UITest
+- **XCUICoordinate API** is used to tap anywhere on the screen
+- Requests are JSON-formatted and allow optional switching of foreground app via `bundleId`
+
+---
+
+## 🧰 Setup Instructions
+
+### 📦 Prerequisites
+
 - Xcode 15+
-- iOS 15+ simulator
-- `xcodebuild test -scheme TapServerUITests ...`
+- iOS 15+ Simulator
+- CocoaPods (with Ruby 3.1+)
+- GCDWebServer installed via CocoaPods
 
-### API
-- POST /tap
-- GET /health
-- GET /info
+### ⚙️ Installation
 
-### Testing
-Use `curl` as shown in assessment for /tap and /health
-
-### Known Limitations
-- iOS sandbox prevents true system-wide taps on physical devices
-- Works best on simulator
-
-### Future Improvements
-- Queue incoming requests
-- Metrics logging
-- Tap retries or validations
+1. Clone the project:
+   ```bash
+   git clone <your-repo-url>
+   cd TapServer
