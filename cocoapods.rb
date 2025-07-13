@@ -1,0 +1,1 @@
+/opt/homebrew/lib/ruby/gems/3.4.0/gems/cocoapods-1.16.2/lib/cocoapods.rb
